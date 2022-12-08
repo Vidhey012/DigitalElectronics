@@ -1,2 +1,2 @@
 # DigitalElectronics
-https://vidhey-logicgates.netify.app/
+https://vidhey-logicgates.netlify.app/
