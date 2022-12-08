@@ -1,0 +1,64 @@
+<html>
+<head>
+
+    <link rel='Shortcut Icon' type='image/x-icon' href='title_logo.png'>
+<title>
+ Logic Gates
+</title>
+<style>
+html, body {
+    margin: 0;
+    height: 100%;
+}
+body{background-image: url('pic2.jpg');background-repeat:no-repeat; }
+.show {
+     opacity: 1;
+    }
+	
+    #spinner {
+	  display:none;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+	  height:300px;
+	  width:300px;
+    }
+	button{
+	border-radius:50px;
+	}
+</style>
+</head>
+<body  bgcolor="black"> 
+<img src="book3.jpg" width="210" height="150" style="position:fixed;top:295px;left:510;">
+<img src="book1.jpg" width="112" height="148" style="position:fixed;top:320px;left:850;">
+<img src="book2.jpg" width="98" height="128" style="position:fixed;top:155px;left:852;">
+<h1><u style="color:yellow;position:fixed;top:80px;left:370;"><big><i>LOGIC GATES...!</i></big></u></h1>
+<b><h2><u style="color:gold;position:fixed;top:155px;left:280;"><big>Basic Gates:</big></u></h2></b>
+<button style="background-color:springgreen;color:blue;position:fixed;top:213px;left:280;" onclick="navigate('and.html')">AND gate</button>
+<button style="background-color:springgreen;color:blue;position:fixed;top:213px;left:380;" onclick="navigate('or.html')">OR gate</button>
+<button style="background-color:springgreen;color:blue;position:fixed;top:213px;left:480;" onclick="navigate('not.html')">NOT gate</button>
+<b><h2><u style="color:gold;position:fixed;top:255px;left:280;"><big>Universal Gates:</big></u></h2></b>
+<button style="background-color:springgreen;color:blue;position:fixed;top:313px;left:280;" onclick="navigate('nand.html')">NAND gate</button>
+<button style="background-color:springgreen;color:blue;position:fixed;top:313px;left:380;" onclick="navigate('nor.html')">NOR gate</button>
+<b><h2><u style="color:gold;position:fixed;top:355px;left:280;"><big>Special Gates:</big></u></h2></b>
+<button style="background-color:springgreen;color:blue;position:fixed;top:413px;left:280;" onclick="navigate('xor.html')">XOR gate</button>
+<button style="background-color:springgreen;color:blue;position:fixed;top:413px;left:380;" onclick="navigate('xnor.html')">XNOR gate</button>
+<img id="spinner" src="gif2.gif"/>
+ <script Type="text/javascript">
+
+	 function navigate(loc)//------------------------------------------------------>>To navigate to game page
+	 {
+	  document.getElementById("spinner").style.display ="block";
+	  
+	   sleep(2000). then(() => { 
+	   window.location.href=loc;
+	   });
+	 }
+     function sleep(ms)//------------------------------------------------------>>To set delay 
+	 {
+      return new Promise(resolve => setTimeout(resolve, ms));
+     } 
+     </script>	 
+</body>
+</html>

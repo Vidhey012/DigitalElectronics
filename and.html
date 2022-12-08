@@ -1,0 +1,268 @@
+<html>
+<head>
+    <link rel='Shortcut Icon' type='image/x-icon' href='title_logo.png'>
+<title>
+ AND gate
+</title>
+<style>
+table{border-style:groove;background-color:grey;}
+button{border-radius: 12%;}
+body{background-image: url('pic3.jpg');}
+</style>
+</head>
+<body  bgcolor="black"> 
+<center>
+<table cellspacing="5">
+<caption style="color:white;">74LS08 IC</caption>
+<tr>
+<td><button onclick="p(1)" id="p1">01</button></td>
+<td></td><td></td><td>  </td><td></td><td></td>
+<td><button onclick="s(14)" id="p14">14</button></td>
+</tr>
+<tr>
+<td><button onclick="q(2)" id="p2">02</button></td>
+<td></td><td></td><td>  </td><td></td><td></td>
+<td><button onclick="q(13)" id="p13">13</button></td>
+</tr>
+<tr>
+<td><button onclick="r(3)" id="p3">03</button></td>
+<td></td><td></td><td style="color:white"> A </td><td></td><td></td>
+<td><button onclick="p(12)" id="p12">12</button></td>
+</tr>
+<tr>
+<td><button onclick="p(4)" id="p4">04</button></td>
+<td></td><td></td><td style="color:white"> N </td><td></td><td></td>
+<td><button onclick="r(11)" id="p11">11</button></td>
+</tr>
+<tr>
+<td><button onclick="q(5)" id="p5">05</button></td>
+<td></td><td></td><td style="color:white"> D </td><td></td><td></td>
+<td><button onclick="q(10)" id="p10">10</button></td>
+</tr>
+<tr>
+<td><button onclick="r(6)" id="p6">06</button></td>
+<td></td><td></td><td>  </td><td></td><td></td>
+<td><button onclick="p(9)" id="p9">09</button></td>
+</tr>
+<tr>
+<td><button onclick="s(7)" id="p7">07</button></td>
+<td></td><td></td><td>  </td><td></td><td></td>
+<td><button onclick="r(8)" id="p8">08</button></input></td>
+</tr>
+</table></br>
+<button onclick="t(1)" id="vcc">VCC(+5V)</button>
+<button onclick="t(2)" id="gnd">GND(+0V)</button></br></br>
+<button onclick="i(1)" id="i1">Input1</button>
+<button onclick="i(2)" id="i2">Input2</button></br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button onclick="i1(0)" id="i11" style="background-color:black;">0</button><button onclick="i1(1)" id="i12" style="background-color:black;">1</button>&nbsp;&nbsp;
+<button onclick="i2(0)" id="i21" style="background-color:black;">0</button><button onclick="i2(1)" id="i22" style="background-color:black;">1</button>&nbsp;&nbsp;&nbsp;&nbsp;
+<button id="cs" style="background-color:red;">Connection Status</button></br></br>
+<button id="o" onclick="o()" >Output</button></br></br>
+<button id="bulb" style="height:40;width:40;border-radius: 50%;">bulb</button></br>
+<h1><textarea rows="11" cols="100" id="note" readonly style="background:blue; color:white; ">This is an interaction box..............!!</textarea></h1>
+<button onclick="help()" id='help' style="background-color:red;">If You Are A New User (or) Need Help In Working Of The Application Click Here</button>
+</center>
+<script type="text/javascript">
+var a=0,b=0,c=0,d=0,e1=0,e2=0,e3=0,e4=0,e5=0,connect=0,pt=0,nt=0;
+function help()
+{
+ if(document.getElementById('help'). style. backgroundColor != 'DeepSkyBlue')
+ {
+ document.getElementById('help'). style. backgroundColor = 'DeepSkyBlue';
+ document.getElementById('note').innerHTML += '&#13;&#10;&#13;&#10;&#13;&#10;-->This is an application developed by "VIDHEY" on working of 74LS08(AND gate)...&#13;&#10;-->To connect two ends in general we use wires physically...&#13;&#10;-->But here if you click on those two ends they are connected logically...&#13;&#10;-->Always first select pin inside ic and then select pin outside ic otherwise there is a chance for errors...&#13;&#10;-->To know weather they are connected,you can observe the status of interaction box or you can observe two ends colour...&#13;&#10;-->The interaction box shows the status of current operation...&#13;&#10;-->Connection status shows the status of connection&#13;&#10;-->After all the connections are successfully done(connection status-blue),you can see the output in bulb by giving input 0 or 1 given below the input connections respectively...&#13;&#10;-->Once one end is clicked or connection is given it is freezed so you cant change it...&#13;&#10;-->To change it,refresh the page.Once you have refreshed,all the current connections may be lost...&#13;&#10;-->I hope all of you understand....!!!&#13;&#10;-->Enjoy it...Thank you😏😏...!!&#13;&#10;&#13;&#10;';
+ }
+}
+function p(z)
+{
+if(a==0&&(b-z==1||b==0)&&d==0)
+{
+ a=z;
+ if(z==1||z==4||z==9||z==12)
+ document.getElementById('p'+z). style. backgroundColor = 'springgreen';
+ document.getElementById('note').innerHTML+= '&#13;&#10;pin '+z+' is connected to';
+ d=1;
+}
+}
+function q(z)
+{
+if(b==0&&(z-a==1||a==0)&&d==0)
+{
+ b=z;
+ if(z==2||z==5||z==10||z==13)
+ document.getElementById('p'+z). style. backgroundColor = 'blueviolet';
+ document.getElementById('note').innerHTML+= '&#13;&#10;pin '+z+' is connected to';
+ d=2;
+}
+}
+function r(z)
+{
+if(c==0&&(z-b==1||z-b==-2||b==0)&&(z-a==2||z-a==-1||a==0)&&d==0)
+{
+ c=z;
+ if(z==3||z==6||z==8||z==11)
+ document.getElementById('p'+z). style. backgroundColor = 'darkorange';
+ document.getElementById('note').innerHTML+= '&#13;&#10;pin '+z+' is connected to';
+ d=3;
+}
+}
+function s(z)
+{
+if(d==0)
+{
+if(z==7)
+{
+d=4;
+document.getElementById('p7'). style. backgroundColor = 'aqua';
+document.getElementById('note').innerHTML += '&#13;&#10;pin '+z+' is connected to';
+}
+if(z==14)
+{
+d=5;
+document.getElementById('p14'). style. backgroundColor = 'red';
+document.getElementById('note').innerHTML += '&#13;&#10;pin '+z+' is connected to';
+}
+}
+}
+function t(z)
+{
+if(d==4&&z==2)
+{
+d=0;
+document.getElementById('gnd'). style. backgroundColor = 'aqua';
+document.getElementById('note').innerHTML += ' GND successfully...!';
+e4=1;
+glow();
+}
+else if(d==5&&z==1)
+{
+d=0;
+document.getElementById('vcc'). style. backgroundColor = 'red';
+document.getElementById('note').innerHTML += ' VCC successfully...!';
+e5=1;
+glow();
+}
+else
+document.getElementById('note').innerHTML += ' (...none(select correct button)...) ';
+}
+function o()
+{
+ if(d==3)
+{
+ d=0;
+ document.getElementById('o'). style. backgroundColor = 'darkorange';
+ document.getElementById('note').innerHTML += ' output successfully...! ';
+ e3=1;
+ glow();
+}
+else
+document.getElementById('note').innerHTML += '(...none(select correct button)...)';
+}
+function i(z)
+{
+ if(z==1&&document.getElementById('i1'). style. backgroundColor != 'blueviolet'&& document.getElementById('i1'). style. backgroundColor != 'springgreen')
+{
+ if(d==1)
+ {
+   document.getElementById('i1'). style. backgroundColor = 'springgreen';
+   document.getElementById('note').innerHTML += ' input 1 successfully...! ';
+   e1=1;
+   d=0; 
+   glow();
+ }
+ else if(d==2)
+ {
+  document.getElementById('i1'). style. backgroundColor = 'blueviolet';
+  document.getElementById('note').innerHTML += ' input 1 successfully...! ';
+  e1=1;
+  d=0;
+  glow();
+ }
+}
+else if(z==2&&document.getElementById('i2'). style. backgroundColor != 'blueviolet'&&document.getElementById('i2'). style. backgroundColor != 'springgreen')
+{
+ if(d==1)
+ {
+   document.getElementById('i2'). style. backgroundColor = 'springgreen';
+   document.getElementById('note').innerHTML += ' input 2 successfully...! ';
+   e2=1;
+   d=0;
+   glow();
+ }
+ else if(d==2)
+ {
+  document.getElementById('i2'). style. backgroundColor = 'blueviolet';
+  document.getElementById('note').innerHTML += ' input 2 successfully...! ';
+  e2=1;
+  d=0;
+  glow();
+ }
+}
+else
+document.getElementById('note').innerHTML += '(...none(select correct button)...)';
+}
+function glow()
+{
+ if(e1==1&&e2==1&&e3==1&&e4==1&&e5==1&&connect==0)
+ {
+  connect=1;
+  document.getElementById('cs'). style. backgroundColor = 'skyblue';
+  document.getElementById('i11'). style. backgroundColor = 'DeepSkyBlue';
+  document.getElementById('i12'). style. backgroundColor = 'white';
+  document.getElementById('i21'). style. backgroundColor = 'DeepSkyBlue';
+  document.getElementById('i22'). style. backgroundColor = 'white';
+  document.getElementById('note').innerHTML += '&#13;&#10;&#13;&#10;&#13;&#10;  ALL THE CONNECTIONS HAVE BEEN CONNECTED SUCCESSFULLY(Now you can give inputs 0 or 1).....!!&#13;&#10;';
+  glow();
+ }
+ if(connect==1)
+ {
+  if(pt&&nt)
+  {
+   document.getElementById('bulb'). style. backgroundColor = 'yellow';
+   document.getElementById('note').innerHTML += '&#13;&#10;&#13;&#10;==> '+pt+' Logical And '+nt+' = 1';
+  }
+  else
+  {
+  document.getElementById('bulb'). style. backgroundColor = 'white';
+  document.getElementById('note').innerHTML += '&#13;&#10;&#13;&#10;==> '+pt+' Logical And '+nt+' = 0';
+  }
+ }
+}
+function i1(z)
+{
+ if(z==0&&connect==1)
+ {
+  pt=0;
+  document.getElementById('i11'). style. backgroundColor = 'DeepSkyBlue';
+  document.getElementById('i12'). style. backgroundColor = 'white';
+  glow();
+ }
+ if(z==1&&connect==1)
+ {
+  pt=1;
+  document.getElementById('i12'). style. backgroundColor = 'DeepSkyBlue';
+  document.getElementById('i11'). style. backgroundColor = 'white';
+  glow();
+ }
+}
+function i2(z)
+{
+ if(z==0&&connect==1)
+ {
+  nt=0;
+  document.getElementById('i21'). style. backgroundColor = 'DeepSkyBlue';
+  document.getElementById('i22'). style. backgroundColor = 'white';
+  glow();
+ }
+ if(z==1&&connect==1)
+ {
+  nt=1;
+  document.getElementById('i22'). style. backgroundColor = 'DeepSkyBlue';
+  document.getElementById('i21'). style. backgroundColor = 'white';
+  glow();
+ }
+}
+</script>
+<img src="iand.png" height="180" width="250" style="position:fixed;top:100;right:150;transform:rotate(90deg);">
+<img src="tand.png" height="250" width="180" style="position:fixed;top:68;left:200;transform:rotate(0deg);">
+</body>
+</html>
